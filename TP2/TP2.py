@@ -15,8 +15,8 @@ def readConnections(listCity):
     for line in lineList:
         src,dst,weight=line.split()
         for city in listCity:
-            if src==city:
-                city.addLink(City_Links.Links(dst,weight))
+            if src==city.name:
+                city.createLinks(City_Links.Links(dst,weight))
 
 if __name__ == "__main__":
     listCity=[]
