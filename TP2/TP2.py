@@ -1,19 +1,14 @@
 import City_Links
-
-def read(name):
-    file=open(name,"r")
-    return [line for line in file]
-
 def readPositions(listCity):
-    lineList = read("positions.txt")
-    for line in lineList:
-        name,x,y=line.split()
+    file=open("positions.txt","r")
+    for linePos in file:
+        name,x,y=linePos.split()
         listCity.append(City_Links.City(name,x,y))
 
 def readConnections(listCity):
-    lineList = read("connections.txt")
-    for line in lineList:
-        src,dst,weight=line.split()
+    file=open("connections.txt","r")
+    for lineCon in file:
+        src,dst,weight=lineCon.split()
         for city in listCity:
             if src==city.name:
                 city.createLinks(City_Links.Links(dst,weight))
