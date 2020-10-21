@@ -1,9 +1,9 @@
 class City :
-    self.links = []
     def __init__(self,name,x,y):
         self.name = name
         self.x = x
         self.y = y
+        self.links = []
     def __str__(self):
         return self.name
     def createLinks(self,link):

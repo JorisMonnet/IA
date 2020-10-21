@@ -1,26 +1,26 @@
+import City_Links
+
 def read(name):
     file=open(name,"r")
     return [line for line in file]
-def readPositions(nodeList):
+
+def readPositions(listCity):
     lineList = read("positions.txt")
     for line in lineList:
-        line.split
-def readConnections(connectionsList):
-    pass
-def aStar_algo(villeA,villeB,heuristic):
-    
-    frontiere  = [start]
-    history = []
-    start=0
-    end=0
-    while len(frontiere)>0:
-        frontiere.sort
-        current = frontiere.pop(0)
-        history.append(current)
-        if current == end:
-            path=[]
-            while current != start:
-                path.append
+        name,x,y=line.split()
+        listCity.append(City_Links.City(name,x,y))
+
+def readConnections(listCity):
+    lineList = read("connections.txt")
+    for line in lineList:
+        src,dst,weight=line.split()
+        for city in listCity:
+            if src==city:
+                city.addLink(City_Links.Links(dst,weight))
 
 if __name__ == "__main__":
-    pass
+    listCity=[]
+    readPositions(listCity)
+    readConnections(listCity)
+    for city in listCity:
+        print(city)
