@@ -35,4 +35,4 @@ def aStarAlgorithm(dicCity,cityA,cityB,h):
                 priority = h(neighbourLeaf, cityB) + tempWeight #use heuristic to change priority in heapq
                 heapq.heappush(frontier,(priority,neighbourLeaf))
 
-    raise Exception("no solution")
+    raise Exception("No solution found")
