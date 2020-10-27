@@ -23,13 +23,16 @@ def aStarAlgorithm(dicCity,cityA,cityB,h):
         if current==cityB:
             return current, steps
             
-        for neighbourLeafs in current.getNeighbourLeafs(dicCity):
-            tempWeight = totalWeight[current] + current.getWeightOf(neighbourLeafs)
-            if neighbourLeafs not in totalWeight or tempWeight < totalWeight[neighbourLeafs]:
-                totalWeight[neighbourLeafs] = tempWeight
-                neighbourLeafs.parent = current
+        for neighbourLeaf in current.getNeighbourLeafs(dicCity):
+            tempWeight = totalWeight[current] + current.getWeightOf(neighbourLeaf)
 
-                priority = h(neighbourLeafs, cityB) + tempWeight
-                heapq.heappush(frontier,(priority,neighbourLeafs))
+            #check for each neighbour Leaf if it come closer to destination or not by changing it's priority in queue if it has not been visited yet 
+            #or if the algorithm find a smaller path from source to this leaf
+            if neighbourLeaf not in totalWeight or tempWeight < totalWeight[neighbourLeaf]:
+                totalWeight[neighbourLeaf] = tempWeight
+                neighbourLeaf.parent = current
+
+                priority = h(neighbourLeaf, cityB) + tempWeight #use heuristic to change priority in heapq
+                heapq.heappush(frontier,(priority,neighbourLeaf))
 
     raise Exception("no solution")
