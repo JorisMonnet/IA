@@ -13,6 +13,7 @@ class City :
         return True
 
     def createLinks(self,link):
+        """ create a link with a connected city"""
         self.links.append(link)
 
     def getNeighbourLeafs(self,dicCity):
@@ -24,12 +25,12 @@ class City :
         for link in self.links:
             if str(link.destination)==str(destination.name):
                 return int(str(link.weight))
-        
+#############################################################################        
 class Links:
     def __init__(self,destination,weight):
         self.destination=destination
         self.weight=weight
-
+#############################################################################  
 def readCityFile(dicCity):
     file=open("positions.txt","r")
     for linePos in file:
@@ -46,7 +47,7 @@ def readLinksFile(dicCity):
         except:
             print("error in file")
 
-def readAll():
+def readAll():#Parse all the information from files
     dicCity={}
     readCityFile(dicCity)
     readLinksFile(dicCity)
