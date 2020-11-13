@@ -1,0 +1,6 @@
+1. On part d'un nombre aléatoire
+2. on applique un operateur aleatoire
+3. on prend un autre nombre aleatoire
+4. on regarde quelles resultats sont les plus proches de la cible
+5. on supprime les plus eloignés
+6. on recommence
