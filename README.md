@@ -4,3 +4,5 @@ Homeworks for AI course in python
 1_taquin folder contain a blind research to resolve taquin game
 
 TP2 use a A* star algorithm 
+
+TP3 use a genetic algorithm
